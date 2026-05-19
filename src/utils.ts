@@ -1,11 +1,23 @@
-export function formatDate(date: Date): string {
-  return date.toISOString().split('T')[0];
-}
+/**
+ * Capitalizes the first letter of the given text and lowercases the rest.
+ *
+ * Behavior:
+ * - Empty string returns empty string.
+ * - Single character returns its uppercase form.
+ * - Leading whitespace is preserved; the first alphabetic character is NOT
+ *   forced — instead the very first character is uppercased per spec.
+ *
+ * @param text - The input string to capitalize.
+ * @returns The capitalized string.
+ */
+export function capitalize(text: string): string {
+  if (typeof text !== "string") {
+    throw new TypeError("capitalize: expected a string argument");
+  }
 
-export function slugify(text: string): string {
-  return text.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-}
+  if (text.length === 0) {
+    return "";
+  }
 
-export function clamp(value: number, min: number, max: number): number {
-  return Math.min(Math.max(value, min), max);
+  return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
 }
