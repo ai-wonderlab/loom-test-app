@@ -1,0 +1,16 @@
+{
+  "name": "loom-test-app",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "test": "vitest run",
+    "test:ci": "vitest run --reporter=verbose"
+  },
+  "dependencies": {
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "vitest": "^1.0.0",
+    "@types/node": "^20.0.0"
+  }
+}
